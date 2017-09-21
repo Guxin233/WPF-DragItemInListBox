@@ -1,0 +1,41 @@
+﻿<Window x:Class="DragItemInListBox.Presentation.Views.ShellWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+        xmlns:vm="clr-namespace:DragItemInListBox.Applications.ViewModels"
+        xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+        mc:Ignorable="d" Title="{Binding Title}" Icon="{StaticResource ApplicationIcon}" Width="600" Height="350">
+
+    <StackPanel>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="ListBox1" Margin="5"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="ListBox2" Margin="5"/>
+
+            <ListBox x:Name="lb1" Grid.Row="1" Grid.Column="0" 
+                     PreviewMouseLeftButtonDown="ListBox_PreviewMouseLeftButtonDown"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                     ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                     ScrollViewer.CanContentScroll="True">
+            </ListBox>
+
+            <ListBox x:Name="lb2" Grid.Row="1" Grid.Column="1" AllowDrop="True" Drop="ListBox_Drop">
+
+            </ListBox>
+
+        </Grid>
+
+
+    </StackPanel>
+
+</Window>
